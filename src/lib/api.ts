@@ -1,5 +1,5 @@
 // TODO: Replace these with your actual API endpoints
-const API_BASE_URL = "https://your-api-base-url.com";
+const API_BASE_URL = "https://www.vyomiraedu.com/api2";
 
 export interface EnrollFormData {
   name: string;
@@ -20,7 +20,7 @@ export interface OtpVerifyResponse {
 }
 
 export async function generateOtp(data: EnrollFormData): Promise<OtpGenerateResponse> {
-  const response = await fetch(`${API_BASE_URL}/api/generate-otp`, {
+  const response = await fetch(`${API_BASE_URL}/auth/send-otp-email`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -33,11 +33,14 @@ export async function generateOtp(data: EnrollFormData): Promise<OtpGenerateResp
   return response.json();
 }
 
-export async function verifyOtp(email: string, otp: string): Promise<OtpVerifyResponse> {
-  const response = await fetch(`${API_BASE_URL}/api/verify-otp`, {
+export async function verifyOtp(data: EnrollFormData, otp: string): Promise<OtpVerifyResponse> {
+  data["otp"]=otp;
+  data["firstName"]=data.name;
+  data["lastName"]=data.name;
+  const response = await fetch(`${API_BASE_URL}/auth/verify-otp-create`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, otp }),
+    body: JSON.stringify(data ),
   });
 
   if (!response.ok) {

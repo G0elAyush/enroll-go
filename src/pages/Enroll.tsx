@@ -50,7 +50,7 @@ const Enroll = () => {
     if (otp.length < 6) return;
     setLoading(true);
     try {
-      await verifyOtp(formData.email, otp);
+      await verifyOtp(formData, otp);
       toast({ title: "Verified!", description: "Redirecting to checkout..." });
       navigate("/checkout", { state: { enrollData: formData } });
     } catch {
