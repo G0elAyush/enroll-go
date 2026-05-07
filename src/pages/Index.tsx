@@ -14,12 +14,19 @@ import { useEffect, useState } from "react";
 
 const navLinks = [
   { label: "Program", href: "#program" },
-  { label: "Roadmap", href: "#roadmap" },
-  { label: "Toolbox", href: "#toolbox" },
   { label: "Outcomes", href: "#outcomes" },
   { label: "Founder", href: "#founder" },
+  { label: "Toolbox", href: "#toolbox" },
+  { label: "Roadmap", href: "#roadmap" },
   { label: "Capstone", href: "#capstone" },
+  { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
+  { label: "About", href: "#about" },
+  { label: "Enrollment", href: "#enrollment" },
+  { label: "Challenges", href: "#challenges" },
+  { label: "Learning", href: "#learning" },
+  { label: "Placement", href: "#placement" },
+  { label: "Features", href: "#features" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -622,7 +629,159 @@ Apply complete! Resources: 12 added.
         </div>
       </section>
 
-      {/* Pricing (kept) */}
+      {/* Who We Are */}
+      <section id="about" className="py-20" style={{ background: "linear-gradient(180deg, hsl(330 40% 97%) 0%, hsl(0 0% 100%) 100%)" }}>
+        <div className="container mx-auto px-4 text-center max-w-3xl">
+          <h2 className="aos-init text-3xl md:text-4xl font-bold gradient-text font-heading mb-8">Who We Are</h2>
+          <p className="aos-init aos-delay-100 text-muted-foreground mb-8 leading-relaxed text-lg">
+            Vyomira Tech Solutions is an engineering-first firm. We don't just teach DevOps; we build scalable cloud infrastructure every day. Our mission is to bridge the gap between academic theory and high-stakes industry requirements by providing freshers with the exact technical workflows used in top-tier tech companies.
+          </p>
+          <h3 className="aos-init aos-delay-200 text-lg font-semibold text-primary mb-4 uppercase tracking-wider">Introduction</h3>
+          <p className="aos-init aos-delay-300 text-muted-foreground leading-relaxed">
+            Degrees get you interviews. Hands-on expertise gets you the offer. While traditional education lags behind the cloud revolution, Vyomira Educate puts you in the driver's seat of real CI/CD pipelines and production-grade automation from Day 1.
+          </p>
+        </div>
+      </section>
+
+      {/* Enrollment Process */}
+      <section id="enrollment" className="py-20" style={{ background: "linear-gradient(180deg, hsl(270 60% 97%), hsl(330 50% 97%))" }}>
+        <div className="container mx-auto px-4">
+          <h2 className="aos-init text-3xl md:text-4xl font-bold gradient-text font-heading text-center mb-14">Enrollment Process</h2>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              { step: "01", title: "Registration", desc: "A registration fee of ₹500 is required to secure your place in the program. This confirms your interest and reserves your seat.", icon: Users },
+              { step: "02", title: "Verify & Finalize", desc: "Complete your full enrollment by 30th April. Use our secure portal to finalize your payment—with No-Cost EMI options available—to unlock your official Student ID and automated tax invoice.", icon: CheckCircle },
+              { step: "03", title: "Access Dashboard", desc: "Get immediate access to the Vyomira Educate Dashboard. Your credentials will be generated automatically, giving you instant access to the Sunday Live Room and prebatch resources.", icon: Monitor },
+            ].map((s, i) => (
+              <div key={s.step} className={`aos-init aos-delay-${(i + 1) * 100} card-hover bg-card border border-border rounded-2xl p-8 text-center`}>
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                  <s.icon className="w-8 h-8 text-primary" />
+                </div>
+                <div className="text-4xl font-bold text-primary/20 mb-2">{s.step}</div>
+                <h3 className="text-xl font-semibold text-card-foreground mb-3">{s.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Challenges & Solutions */}
+      <section id="challenges" className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+            <div>
+              <h2 className="aos-init text-3xl font-bold text-foreground font-heading mb-8">Challenges Students Face</h2>
+              <div className="space-y-4">
+                {[
+                  { icon: Shield, text: "Lack of Production Exposure" },
+                  { icon: Code, text: "The Theoretical Knowledge Gap" },
+                  { icon: GitBranch, text: "No production-grade CI/CD Portfolios" },
+                  { icon: Users, text: "Low confidence in interviews" },
+                ].map((c, i) => (
+                  <div key={c.text} className={`aos-init aos-delay-${(i + 1) * 100} flex items-center gap-4 bg-destructive/5 border border-destructive/10 rounded-xl p-5 card-hover`}>
+                    <div className="w-10 h-10 rounded-lg bg-destructive/10 flex items-center justify-center shrink-0">
+                      <c.icon className="w-5 h-5 text-destructive" />
+                    </div>
+                    <span className="text-foreground font-medium">{c.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h2 className="aos-init text-3xl font-bold text-foreground font-heading mb-8">How We Solve It</h2>
+              <div className="space-y-4">
+                {[
+                  { icon: Monitor, text: "Live Production-Grade Labs" },
+                  { icon: Settings, text: "Enterprise DevOps Frameworks" },
+                  { icon: Rocket, text: "Live project building" },
+                  { icon: Award, text: "Interview preparation support" },
+                ].map((s, i) => (
+                  <div key={s.text} className={`aos-init aos-delay-${(i + 1) * 100} flex items-center gap-4 bg-primary/5 border border-primary/10 rounded-xl p-5 card-hover`}>
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <s.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="text-foreground font-medium">{s.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What You Will Learn */}
+      <section id="learning" className="py-20" style={{ background: "linear-gradient(180deg, hsl(270 40% 97%), hsl(0 0% 100%))" }}>
+        <div className="container mx-auto px-4">
+          <h2 className="aos-init text-3xl md:text-4xl font-bold text-foreground font-heading text-center mb-4">What You Will Learn</h2>
+          <p className="aos-init text-center text-muted-foreground mb-14 max-w-2xl mx-auto text-lg">Industry-Standard DevOps Mastery</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              { icon: Cloud, title: "Cloud Architecture", desc: "Master AWS, GCP & Azure ecosystems. Architect highly available, secure, and cost-effective cloud environments." },
+              { icon: GitBranch, title: "Automated Delivery", desc: "Build production-ready CI/CD pipelines with zero-downtime deployment strategies." },
+              { icon: FileCode, title: "Infrastructure as Code", desc: "Use Terraform and Ansible to deploy and manage immutable infrastructure across environments." },
+              { icon: Server, title: "Scalable Orchestration", desc: "Deploy and manage Kubernetes clusters in real-world production environments." },
+              { icon: Activity, title: "Enterprise SRE Workflows", desc: "Master monitoring, logging, and incident response workflows used by top tech firms." },
+              { icon: Rocket, title: "Capstone Project", desc: "Ship a complete real-world DevOps project from code to cloud deployment." },
+            ].map((topic, i) => (
+              <div key={topic.title} className={`aos-init aos-delay-${((i % 3) + 1) * 100} card-hover bg-card border border-border rounded-2xl p-8`}>
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-5">
+                  <topic.icon className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-card-foreground mb-3">{topic.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{topic.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Placement Support */}
+      <section id="placement" className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="aos-init text-3xl md:text-4xl font-bold text-foreground font-heading text-center mb-14">Placement Support</h2>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              { icon: Briefcase, title: "Technical Interview Bootcamps", desc: "Deep-dive guidance on system design, automated testing protocols, and behavioural expectations of top-tier cloud engineering firms." },
+              { icon: Users, title: "Industry Alignment Guidance", desc: "Align your skills with current enterprise requirements to ensure you are day-one ready." },
+              { icon: Award, title: "Production-Grade Portfolios", desc: "Document your experience building real-world, high-availability projects that prove your competence." },
+            ].map((item, i) => (
+              <div key={item.title} className={`aos-init aos-delay-${(i + 1) * 100} card-hover bg-card border border-border rounded-2xl p-8 text-center`}>
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center mx-auto mb-5">
+                  <item.icon className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-card-foreground mb-3">{item.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section id="features" className="py-20" style={{ background: "linear-gradient(180deg, hsl(270 40% 97%), hsl(0 0% 100%))" }}>
+        <div className="container mx-auto px-4">
+          <h2 className="aos-init text-3xl md:text-4xl font-bold text-foreground font-heading text-center mb-14">Why Choose Vyomira</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {[
+              { icon: Monitor, title: "Live Sunday Sessions", desc: "Weekly live classes with real-time doubt solving" },
+              { icon: Code, title: "Hands-On Labs", desc: "Production-grade lab environments for practice" },
+              { icon: Users, title: "Community Access", desc: "Join a network of aspiring DevOps engineers" },
+              { icon: Award, title: "Certification", desc: "Get certified on program completion" },
+            ].map((f, i) => (
+              <div key={f.title} className={`aos-init aos-delay-${(i + 1) * 100} card-hover bg-card border border-border rounded-2xl p-6 text-center`}>
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/15 to-accent/15 flex items-center justify-center mx-auto mb-4">
+                  <f.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-card-foreground mb-2">{f.title}</h3>
+                <p className="text-muted-foreground text-sm">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
       <section id="pricing" className="py-20">
         <div className="container mx-auto px-4 text-center">
           <h2 className="aos-init text-3xl md:text-4xl font-bold text-foreground font-heading mb-4">Simple & Flexible Payment Plan</h2>
