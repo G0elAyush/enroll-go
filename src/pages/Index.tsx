@@ -14,12 +14,19 @@ import { useEffect, useState } from "react";
 
 const navLinks = [
   { label: "Program", href: "#program" },
-  { label: "Roadmap", href: "#roadmap" },
-  { label: "Toolbox", href: "#toolbox" },
   { label: "Outcomes", href: "#outcomes" },
   { label: "Founder", href: "#founder" },
+  { label: "Toolbox", href: "#toolbox" },
+  { label: "Roadmap", href: "#roadmap" },
   { label: "Capstone", href: "#capstone" },
+  { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
+  { label: "About", href: "#about" },
+  { label: "Enrollment", href: "#enrollment" },
+  { label: "Challenges", href: "#challenges" },
+  { label: "Learning", href: "#learning" },
+  { label: "Placement", href: "#placement" },
+  { label: "Features", href: "#features" },
   { label: "Contact", href: "#contact" },
 ];
 
