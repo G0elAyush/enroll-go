@@ -8,25 +8,46 @@ import {
   Monitor, Rocket, Code, Server, GitBranch, Database, Mail, Phone,
   MapPin, Globe, Menu, X, Terminal, Container, Workflow, Cpu,
   Linkedin, Download, ArrowRight, Boxes, Zap, FileCode, Lock,
-  Activity, Target, GraduationCap, Layers,
+  Activity, Target, GraduationCap, Layers, ChevronDown,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import {
+  DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 
-const navLinks = [
+type NavItem = { label: string; href: string };
+type NavGroup = { label: string; href?: string; children?: NavItem[] };
+
+const navGroups: NavGroup[] = [
   { label: "Program", href: "#program" },
-  { label: "Outcomes", href: "#outcomes" },
-  { label: "Founder", href: "#founder" },
-  { label: "Toolbox", href: "#toolbox" },
-  { label: "Roadmap", href: "#roadmap" },
-  { label: "Capstone", href: "#capstone" },
+  {
+    label: "Curriculum",
+    children: [
+      { label: "Roadmap", href: "#roadmap" },
+      { label: "Toolbox", href: "#toolbox" },
+      { label: "Capstone", href: "#capstone" },
+      { label: "What You'll Learn", href: "#learning" },
+      { label: "Challenges Solved", href: "#challenges" },
+      { label: "Features", href: "#features" },
+    ],
+  },
+  {
+    label: "Outcomes",
+    children: [
+      { label: "Career Outcomes", href: "#outcomes" },
+      { label: "Placement Support", href: "#placement" },
+    ],
+  },
   { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
-  { label: "About", href: "#about" },
-  { label: "Enrollment", href: "#enrollment" },
-  { label: "Challenges", href: "#challenges" },
-  { label: "Learning", href: "#learning" },
-  { label: "Placement", href: "#placement" },
-  { label: "Features", href: "#features" },
+  {
+    label: "Company",
+    children: [
+      { label: "About Us", href: "#about" },
+      { label: "Founder", href: "#founder" },
+      { label: "Enrollment Process", href: "#enrollment" },
+      { label: "FAQ", href: "#faq" },
+    ],
+  },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -241,14 +262,30 @@ const Index = () => {
       {/* Navbar */}
       <nav className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4 flex items-center justify-between h-16">
-          <span className="text-xl font-bold gradient-text font-heading">Vyomira Educate</span>
-          <div className="hidden lg:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <a key={link.label} href={link.href}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300">
-                {link.label}
-              </a>
-            ))}
+          <a href="#program" className="text-xl font-bold gradient-text font-heading">Vyomira Educate</a>
+          <div className="hidden lg:flex items-center gap-1">
+            {navGroups.map((group) =>
+              group.children ? (
+                <DropdownMenu key={group.label}>
+                  <DropdownMenuTrigger className="inline-flex items-center gap-1 px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring data-[state=open]:text-primary">
+                    {group.label}
+                    <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 data-[state=open]:rotate-180" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="min-w-[14rem]">
+                    {group.children.map((c) => (
+                      <DropdownMenuItem key={c.label} asChild>
+                        <a href={c.href} className="cursor-pointer w-full">{c.label}</a>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <a key={group.label} href={group.href}
+                  className="px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300">
+                  {group.label}
+                </a>
+              )
+            )}
           </div>
           <div className="flex items-center gap-3">
             <Button onClick={() => navigate("/enroll")} size="sm"
@@ -261,14 +298,29 @@ const Index = () => {
           </div>
         </div>
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-background border-b border-border px-4 pb-4 animate-fade-in">
-            {navLinks.map((link) => (
-              <a key={link.label} href={link.href}
-                className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setMobileMenuOpen(false)}>
-                {link.label}
-              </a>
-            ))}
+          <div className="lg:hidden bg-background border-b border-border px-4 pb-4 animate-fade-in max-h-[70vh] overflow-y-auto">
+            {navGroups.map((group) =>
+              group.children ? (
+                <div key={group.label} className="py-1">
+                  <p className="text-xs font-semibold text-foreground/70 uppercase tracking-wider mt-3 mb-1">
+                    {group.label}
+                  </p>
+                  {group.children.map((c) => (
+                    <a key={c.label} href={c.href}
+                      className="block py-2 pl-3 text-sm text-muted-foreground hover:text-primary transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}>
+                      {c.label}
+                    </a>
+                  ))}
+                </div>
+              ) : (
+                <a key={group.label} href={group.href}
+                  className="block py-2 text-sm font-medium text-foreground hover:text-primary transition-colors mt-2"
+                  onClick={() => setMobileMenuOpen(false)}>
+                  {group.label}
+                </a>
+              )
+            )}
           </div>
         )}
       </nav>
