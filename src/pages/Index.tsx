@@ -8,25 +8,46 @@ import {
   Monitor, Rocket, Code, Server, GitBranch, Database, Mail, Phone,
   MapPin, Globe, Menu, X, Terminal, Container, Workflow, Cpu,
   Linkedin, Download, ArrowRight, Boxes, Zap, FileCode, Lock,
-  Activity, Target, GraduationCap, Layers,
+  Activity, Target, GraduationCap, Layers, ChevronDown,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import {
+  DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 
-const navLinks = [
+type NavItem = { label: string; href: string };
+type NavGroup = { label: string; href?: string; children?: NavItem[] };
+
+const navGroups: NavGroup[] = [
   { label: "Program", href: "#program" },
-  { label: "Outcomes", href: "#outcomes" },
-  { label: "Founder", href: "#founder" },
-  { label: "Toolbox", href: "#toolbox" },
-  { label: "Roadmap", href: "#roadmap" },
-  { label: "Capstone", href: "#capstone" },
+  {
+    label: "Curriculum",
+    children: [
+      { label: "Roadmap", href: "#roadmap" },
+      { label: "Toolbox", href: "#toolbox" },
+      { label: "Capstone", href: "#capstone" },
+      { label: "What You'll Learn", href: "#learning" },
+      { label: "Challenges Solved", href: "#challenges" },
+      { label: "Features", href: "#features" },
+    ],
+  },
+  {
+    label: "Outcomes",
+    children: [
+      { label: "Career Outcomes", href: "#outcomes" },
+      { label: "Placement Support", href: "#placement" },
+    ],
+  },
   { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
-  { label: "About", href: "#about" },
-  { label: "Enrollment", href: "#enrollment" },
-  { label: "Challenges", href: "#challenges" },
-  { label: "Learning", href: "#learning" },
-  { label: "Placement", href: "#placement" },
-  { label: "Features", href: "#features" },
+  {
+    label: "Company",
+    children: [
+      { label: "About Us", href: "#about" },
+      { label: "Founder", href: "#founder" },
+      { label: "Enrollment Process", href: "#enrollment" },
+      { label: "FAQ", href: "#faq" },
+    ],
+  },
   { label: "Contact", href: "#contact" },
 ];
 
