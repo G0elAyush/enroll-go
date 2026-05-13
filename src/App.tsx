@@ -29,7 +29,7 @@ const App = () => {
           <Route path="/payment-status" element={<PaymentStatus />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-<       LegalPopup popup={popup} setPopup={setPopup} />
+<LegalPopup popup={popup} setPopup={setPopup} />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
