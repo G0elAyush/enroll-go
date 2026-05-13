@@ -248,8 +248,7 @@ const Index = ({ setPopup }) => {
   useScrollAnimation();
 
   const downloadSyllabus = () => {
-    // Placeholder — replace with real PDF link when available
-    window.open("#roadmap", "_self");
+    window.open("/VyomiraEducateSyllabus.pdf", "_self");
   };
 
   return (
@@ -477,8 +476,8 @@ Apply complete! Resources: 12 added.
                 </div>
               </div>
               <div className="md:col-span-3">
-                <h3 className="text-2xl font-bold text-card-foreground mb-1">Vyomira Founder</h3>
-                <p className="text-primary font-semibold mb-4">CEO, Vyomira Tech</p>
+                <h3 className="text-2xl font-bold text-card-foreground mb-1">Rohit Kumar</h3>
+                <p className="text-primary font-semibold mb-4">CEO & Founder, Vyomira Tech</p>
                 <p className="text-muted-foreground leading-relaxed mb-5">
                   Hands-on experience across <span className="font-semibold text-foreground">AWS, GCP, Azure</span>, DevOps automation, CI/CD,
                   Linux engineering, and cloud infrastructure. Students learn the same technologies and workflows used to run real production systems.
@@ -490,7 +489,7 @@ Apply complete! Resources: 12 added.
                     </span>
                   ))}
                 </div>
-                <Button variant="outline" className="rounded-full" onClick={() => window.open("https://linkedin.com", "_blank")}>
+                <Button variant="outline" className="rounded-full" onClick={() => window.open("https://www.linkedin.com/in/rohit-kumar1108/", "_blank")}>
                   <Linkedin className="w-4 h-4" /> Connect on LinkedIn
                 </Button>
               </div>
@@ -1008,7 +1007,7 @@ Apply complete! Resources: 12 added.
             <div>
               <h4 className="font-semibold text-[hsl(210,40%,98%)] mb-3">Connect</h4>
               <div className="flex gap-3">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-[hsl(217,33%,20%)] flex items-center justify-center hover:border-primary hover:text-primary transition-colors">
+                <a href="https://www.linkedin.com/company/vyomira-tech-solutions-private-limited/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-[hsl(217,33%,20%)] flex items-center justify-center hover:border-primary hover:text-primary transition-colors">
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a href="https://vyomiratech.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-[hsl(217,33%,20%)] flex items-center justify-center hover:border-primary hover:text-primary transition-colors">
