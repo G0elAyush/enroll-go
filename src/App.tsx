@@ -8,25 +8,31 @@ import Enroll from "./pages/Enroll.tsx";
 import Checkout from "./pages/Checkout.tsx";
 import PaymentStatus from "./pages/PaymentStatus.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import LegalPopup from "./pages/LegalPopup";
+import { useState } from "react";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  const [popup, setPopup] = useState(null);
+  return(
+  
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<Index setPopup={setPopup} />} />
           <Route path="/enroll" element={<Enroll />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/payment-status" element={<PaymentStatus />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+<       LegalPopup popup={popup} setPopup={setPopup} />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
-
+}
 export default App;

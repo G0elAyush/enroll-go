@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import {
   DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import logo from "../assets/VyomiraDarkLogo.png";
 
 type NavItem = { label: string; href: string };
 type NavGroup = { label: string; href?: string; children?: NavItem[] };
@@ -241,7 +242,7 @@ function useScrollAnimation() {
   }, []);
 }
 
-const Index = () => {
+const Index = ({ setPopup }) => {
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   useScrollAnimation();
@@ -262,7 +263,7 @@ const Index = () => {
       {/* Navbar */}
       <nav className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4 flex items-center justify-between h-16">
-          <a href="#program" className="text-xl font-bold gradient-text font-heading">Vyomira Educate</a>
+          <a href="/" className="w-[160px] text-xl font-bold gradient-text font-heading"><img  src={logo} alt="Vyomira Educate"/></a>
           <div className="hidden lg:flex items-center gap-1">
             {navGroups.map((group) =>
               group.children ? (
@@ -762,6 +763,29 @@ Apply complete! Resources: 12 added.
         </div>
       </section>
 
+      {/* Program Details */}
+      <section id="program" className="py-20" style={{ background: "linear-gradient(180deg, hsl(270 40% 97%), hsl(0 0% 100%))" }}>
+        <div className="container mx-auto px-4 text-center max-w-4xl">
+          <h2 className="aos-init text-3xl md:text-4xl font-bold text-foreground font-heading mb-6">Industry DevOps Training Program</h2>
+          <p className="aos-init aos-delay-100 text-muted-foreground mb-12 text-lg">
+            Vyomira Tech Educate is a 3-month industry training program designed for students interested in building careers in Cloud and DevOps technologies.
+          </p>
+          <div className="grid sm:grid-cols-3 gap-6">
+            {[
+              { label: "Upcoming Batch", value: "31st May 2026" },
+              { label: "Duration", value: "15 Weeks" },
+              { label: "Schedule", value: "Sunday 10:00 AM - 1:00 PM IST" },
+            ].map((item, i) => (
+              <div key={item.label} className={`aos-init aos-delay-${(i + 1) * 100} card-hover bg-card border border-border rounded-2xl p-6`}>
+                <p className="text-sm text-muted-foreground mb-1">{item.label}</p>
+                <p className="text-lg font-bold text-foreground">{item.value}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-muted-foreground mt-6">This schedule allows students to learn alongside their college commitments.</p>
+        </div>
+      </section>
+
       {/* What You Will Learn */}
       <section id="learning" className="py-20" style={{ background: "linear-gradient(180deg, hsl(270 40% 97%), hsl(0 0% 100%))" }}>
         <div className="container mx-auto px-4">
@@ -995,9 +1019,9 @@ Apply complete! Resources: 12 added.
             <div>
               <h4 className="font-semibold text-[hsl(210,40%,98%)] mb-3">Legal</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Terms & Conditions</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Refund Policy</a></li>
+                <li onClick={() => setPopup("privacy")}>Privacy Policy</li>
+                <li onClick={() => setPopup("terms")}>Terms & Conditions</li>
+                <li onClick={() => setPopup("refund")}>Refund Policy</li>
               </ul>
             </div>
           </div>

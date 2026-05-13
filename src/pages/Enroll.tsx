@@ -6,12 +6,20 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import { useToast } from "@/hooks/use-toast";
-import { generateOtp, verifyOtp, type EnrollFormData } from "@/lib/api";
+import { generateOtp, verifyOtp, type EnrollFormData, EnrollFormError } from "@/lib/api";
+//import { generateOtp, verifyOtp, type EnrollFormData,, OtpVerifyResponse,OtpGenerateResponse} from "@/lib/api";
 import { ArrowLeft, Loader2, Mail } from "lucide-react";
+import logo from "../assets/VyomiraDarkLogo.png";
 
 const Enroll = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const [errors, setErrors] = useState<EnrollFormError>({
+    name: "",
+    email: "",
+    phone: "",
+    college: "",
+  });
   const [step, setStep] = useState<"form" | "otp">("form");
   const [loading, setLoading] = useState(false);
   const [otp, setOtp] = useState("");
@@ -24,12 +32,44 @@ const Enroll = () => {
 
   const handleInputChange = (field: keyof EnrollFormData, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    let error = "";
+
+    switch (field) {
+      case "name":
+        if (!value.trim()) error = "Name is required";
+        else if (!/^[A-Za-z ]{2,}$/.test(value))
+          error = "Only letters, min 2 characters";
+        break;
+
+      case "email":
+        if (!value.trim()) error = "Email is required";
+        else if (
+          !/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(value)
+        )
+          error = "Enter a valid email (example@gmail.com)";
+        break;
+
+      case "phone":
+        if (!value.trim()) error = "Phone number is required";
+        else if (!/^\d{10}$/.test(value))
+          error = "Phone number must be exactly 10 digits";
+        break;
+
+      case "college":
+        if (!value.trim()) error = "College name is required";
+        break;
+
+      default:
+        break;
+    }
+
+    setErrors((prev) => ({ ...prev, [field]: error }));
   };
 
   const isFormValid =
-    formData.name.trim().length > 0 &&
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) &&
-    formData.phone.trim().length >= 10 &&
+    /^[A-Za-z ]{2,}$/.test(formData.name.trim()) &&
+    /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(formData.email) &&
+    formData.phone.trim().length == 10 &&
     formData.college.trim().length > 0;
 
   const handleContinue = async () => {
@@ -39,8 +79,8 @@ const Enroll = () => {
       await generateOtp(formData);
       setStep("otp");
       toast({ title: "OTP Sent!", description: "Check your email for the verification code." });
-    } catch {
-      toast({ title: "Error", description: "Failed to send OTP. Please try again.", variant: "destructive" });
+    } catch (e) {
+      toast({ title: "Error", description: (e as Error).message, variant: "destructive" });
     } finally {
       setLoading(false);
     }
@@ -53,14 +93,21 @@ const Enroll = () => {
       await verifyOtp(formData.email, otp);
       toast({ title: "Verified!", description: "Redirecting to checkout..." });
       navigate("/checkout", { state: { enrollData: formData } });
-    } catch {
-      toast({ title: "Verification Failed", description: "Invalid OTP. Please try again.", variant: "destructive" });
+    } catch (e) {
+      toast({ title: "Verification Failed", description: (e as Error).message, variant: "destructive" });
     } finally {
       setLoading(false);
     }
   };
 
   return (
+    <div>
+    <div className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+        <div className="container mx-auto px-4 flex items-center justify-between h-16">
+          <a href="/" className="w-[160px] text-xl font-bold gradient-text font-heading"><img  src={logo} alt="Vyomira Educate"/></a>
+    </div>
+    </div>
+    
     <div className="min-h-screen bg-background flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md animate-fade-in">
         <button onClick={() => (step === "otp" ? setStep("form") : navigate("/"))} className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-6 transition-colors">
@@ -77,18 +124,22 @@ const Enroll = () => {
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name</Label>
                 <Input id="name" placeholder="John Doe" value={formData.name} onChange={(e) => handleInputChange("name", e.target.value)} />
+                {errors.name && (<span style={{ color: "red" }}>{errors.name}</span>)}
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input id="email" type="email" placeholder="john@example.com" value={formData.email} onChange={(e) => handleInputChange("email", e.target.value)} />
+                {errors.email && (<span style={{ color: "red" }}>{errors.email}</span>)}
               </div>
               <div className="space-y-2">
                 <Label htmlFor="phone">Phone Number</Label>
-                <Input id="phone" type="tel" placeholder="+91 9876543210" value={formData.phone} onChange={(e) => handleInputChange("phone", e.target.value)} />
+                <Input id="phone" type="tel" placeholder="9876543210" value={formData.phone} onChange={(e) => handleInputChange("phone", e.target.value)} />
+                {errors.phone && (<span style={{ color: "red" }}>{errors.phone}</span>)}
               </div>
               <div className="space-y-2">
                 <Label htmlFor="college">College / Institution</Label>
                 <Input id="college" placeholder="Your college name" value={formData.college} onChange={(e) => handleInputChange("college", e.target.value)} />
+                {errors.college && (<span style={{ color: "red" }}>{errors.college}</span>)}
               </div>
               <Button className="w-full mt-2" size="lg" disabled={!isFormValid || loading} onClick={handleContinue}>
                 {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
@@ -135,6 +186,8 @@ const Enroll = () => {
         )}
       </div>
     </div>
+  </div>
+  
   );
 };
 

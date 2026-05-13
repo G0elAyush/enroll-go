@@ -4,29 +4,47 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, CreditCard, ShieldCheck } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import type { EnrollFormData } from "@/lib/api";
+import type { EnrollFormData,OtpVerifyResponse } from "@/lib/api";
+import { load } from "@cashfreepayments/cashfree-js";
+import logo from "../assets/VyomiraDarkLogo.png";
 
 const Checkout = () => {
+  let cashfree;
+  var initializeSDK = async function () {
+    cashfree = await load({
+      mode: "production"
+    });
+  }
+  initializeSDK();
   const location = useLocation();
   const navigate = useNavigate();
   const { toast } = useToast();
   const enrollData = location.state?.enrollData as EnrollFormData | undefined;
+  const otpResponse = location.state?.otpResponse as OtpVerifyResponse | undefined;
 
   if (!enrollData) {
     return <Navigate to="/enroll" replace />;
   }
 
-  const handlePayment = () => {
-    // TODO: Integrate Cashfree payment gateway here
-    // 1. Call your backend to create a Cashfree order
-    // 2. Open Cashfree checkout with the order token
+  const handlePayment = async () => {
+     let checkoutOptions = {
+      paymentSessionId: otpResponse.data.session_id,
+      redirectTarget: "_self",
+    };
+    cashfree.checkout(checkoutOptions);
     toast({
       title: "Payment Gateway",
-      description: "Cashfree integration will be connected here. Please provide your Cashfree credentials.",
+      description: "Cashfree integration will be connected here.",
     });
   };
 
   return (
+    <div>
+      <div className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+        <div className="container mx-auto px-4 flex items-center justify-between h-16">
+          <a href="/" className="w-[160px] text-xl font-bold gradient-text font-heading"><img  src={logo} alt="Vyomira Educate"/></a>
+    </div>
+    </div>
     <div className="min-h-screen bg-background flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-lg animate-fade-in">
         <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-6 transition-colors">
@@ -87,6 +105,8 @@ const Checkout = () => {
         </Card>
       </div>
     </div>
+  </div>
+
   );
 };
 

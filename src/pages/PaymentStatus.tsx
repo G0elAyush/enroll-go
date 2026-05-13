@@ -3,8 +3,9 @@ import { useSearchParams, Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, XCircle, Loader2 } from "lucide-react";
+import {API_BASE_URL} from "@/lib/api";
+import logo from "../assets/VyomiraDarkLogo.png";
 
-const API_BASE_URL = "https://your-api-base-url.com";
 
 type Status = "loading" | "SUCCESS" | "FAIL";
 
@@ -21,7 +22,7 @@ const PaymentStatus = () => {
 
     const checkStatus = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/api/payment-status?order_id=${encodeURIComponent(orderId)}`);
+        const res = await fetch(`${API_BASE_URL}//payment/verify/${encodeURIComponent(orderId)}`);
         if (!res.ok) throw new Error();
         const data = await res.json();
         setStatus(data.status === "SUCCESS" ? "SUCCESS" : "FAIL");
@@ -34,6 +35,12 @@ const PaymentStatus = () => {
   }, [orderId]);
 
   return (
+     <div>
+      <div className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+        <div className="container mx-auto px-4 flex items-center justify-between h-16">
+          <a href="/" className="w-[160px] text-xl font-bold gradient-text font-heading"><img  src={logo} alt="Vyomira Educate"/></a>
+    </div>
+    </div>
     <div className="min-h-screen bg-background flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md animate-fade-in">
         {status === "loading" ? (
@@ -82,6 +89,7 @@ const PaymentStatus = () => {
         )}
       </div>
     </div>
+  </div>
   );
 };
 

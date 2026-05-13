@@ -1,0 +1,73 @@
+.logo {
+    
+    max-width: 80%;
+    display: block;
+    height:40%;
+}
+.logoFooter {
+    
+    max-width: 80%;
+    display: block;
+    height:40%;
+}
+
+.container.mx-auto.px-4{
+    padding-left:0
+}
+.logoHref{
+    max-width: 15%;
+}
+.text-sm.text-muted-foreground{
+    color: rgb(17, 24, 39);
+    font-weight: 500;
+    font-size: medium;
+}
+.aos-init.aos-delay-100.text-muted-foreground{
+    transition-delay: 0.1s;
+    color: rgb(85, 85, 85);
+    line-height: 1.7;
+    font-size: 1.125rem;
+} 
+.aos-init.aos-delay-300.text-muted-foreground{
+    transition-delay: 0.1s;
+    color: rgb(85, 85, 85);
+    line-height: 1.7;
+    font-size: 1.125rem;
+} 
+.text-lg.text-muted-foreground{
+    color: rgb(85, 85, 85);
+    line-height: 1.7;
+    font-size: 1.125rem;
+}
+.text-sm.text-muted-foreground{
+    color: rgb(85, 85, 85);
+    line-height: 1.7;
+    font-size: 1.125rem;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+.logoHref {
+    max-width: 50%;
+}
+
+.logo{
+    width: 100%;
+    display: block;
+    
+}
+.logoFooter
+{
+    width: 50%;
+    display: block;
+    height: 80%;
+ }
+
+.container.mx-auto.px-4 
+{
+    padding-left: 1rem;
+}
+#floatCards {
+    display: inline-grid;
+}
+}
