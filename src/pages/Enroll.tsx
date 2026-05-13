@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import { useToast } from "@/hooks/use-toast";
-import { generateOtp, verifyOtp, type EnrollFormData, EnrollFormError } from "@/lib/api";
+import { generateOtp, verifyOtp, type EnrollFormData, EnrollFormError,OtpVerifyResponse } from "@/lib/api";
 import { ArrowLeft, Loader2, Mail, CheckCircle, Target, Rocket, GraduationCap } from "lucide-react";
 import logo from "../assets/VyomiraDarkLogo.png";
 
@@ -89,9 +89,9 @@ const Enroll = () => {
     if (otp.length < 6) return;
     setLoading(true);
     try {
-      await verifyOtp(formData.email, otp);
+      const  otpResponse: OtpVerifyResponse = await verifyOtp(formData.email, otp);
       toast({ title: "Verified!", description: "Redirecting to checkout..." });
-      navigate("/checkout", { state: { enrollData: formData } });
+      navigate("/checkout", { state: { enrollData: formData, otpResponse: otpResponse } });
     } catch (e) {
       toast({ title: "Verification Failed", description: (e as Error).message, variant: "destructive" });
     } finally {

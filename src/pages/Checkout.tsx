@@ -176,19 +176,21 @@ const Checkout = () => {
                     <div className="space-y-3">
                       <div className="flex justify-between text-sm">
                         <span className="text-muted-foreground">Course Enrollment Fee</span>
-                        <span className="font-medium text-foreground">₹999.00</span>
+                        <span className="text-foreground">₹{otpResponse.data.course_amount}</span>
                       </div>
+                      {otpResponse.data.gst_amount === 0?(""):(
                       <div className="flex justify-between text-sm">
                         <span className="text-muted-foreground">GST (18%)</span>
-                        <span className="font-medium text-foreground">₹179.82</span>
+                        <span className="text-foreground">₹{otpResponse.data.gst_amount}</span>
                       </div>
+                      )}
                       <Separator className="bg-border/50 my-2" />
                       <div className="flex justify-between font-semibold text-lg items-center">
                         <span className="text-foreground">Total</span>
-                        <span className="text-primary text-xl">₹1,178.82</span>
+                        <span className="text-primary">₹{otpResponse.data.total_amount}</span>
                       </div>
                     </div>
-
+                      
                     <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity mt-4" size="lg" onClick={handlePayment}>
                       Pay with Cashfree
                     </Button>
