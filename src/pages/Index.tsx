@@ -15,6 +15,7 @@ import {
   DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import logo from "../assets/VyomiraDarkLogo.png";
+import rohitpic from "../../public/RohitKumarPic.jpeg";
 
 type NavItem = { label: string; href: string };
 type NavGroup = { label: string; href?: string; children?: NavItem[] };
@@ -470,14 +471,15 @@ Apply complete! Resources: 12 added.
               <div className="md:col-span-2 flex justify-center">
                 <div className="relative">
                   <div className="absolute -inset-2 bg-gradient-to-br from-primary to-accent rounded-full blur opacity-30" />
-                  <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border-4 border-card flex items-center justify-center overflow-hidden">
-                    <Users className="w-24 h-24 text-primary/60" />
+                  <div className="relative w-100 h-1000 md:w-40 md:h-70 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border-4 border-card flex items-center justify-center overflow-hidden">
+                   {/* <Users className="w-24 h-24 text-primary/60" />*/}
+                   <img className="w-50 h-50" src={rohitpic} alt="Rohit Kumar Image"/>
                   </div>
                 </div>
               </div>
               <div className="md:col-span-3">
                 <h3 className="text-2xl font-bold text-card-foreground mb-1">Rohit Kumar</h3>
-                <p className="text-primary font-semibold mb-4">CEO & Founder, Vyomira Tech</p>
+                <p className="text-primary font-semibold mb-4">CEO & Founder, Vyomira Tech Solutions Private Limited</p>
                 <p className="text-muted-foreground leading-relaxed mb-5">
                   Hands-on experience across <span className="font-semibold text-foreground">AWS, GCP, Azure</span>, DevOps automation, CI/CD,
                   Linux engineering, and cloud infrastructure. Students learn the same technologies and workflows used to run real production systems.
