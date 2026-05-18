@@ -70,32 +70,50 @@ const Checkout = () => {
             
             <div className="relative z-10 max-w-lg mx-auto">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary mb-6 animate-fade-in">
-                <ShieldCheck className="w-4 h-4" /> Secure Enrollment Process
+                <ShieldCheck className="w-4 h-4" /> Step 1 of 2 — Seat Booking
               </div>
               <h1 className="text-4xl lg:text-5xl font-bold font-heading mb-6 text-foreground leading-tight animate-fade-in" style={{ animationDelay: "100ms" }}>
-                Complete Your <span className="gradient-text">Registration</span>
+                Confirm Your <span className="gradient-text">Seat Booking</span>
               </h1>
-              <p className="text-lg text-muted-foreground mb-12 animate-fade-in" style={{ animationDelay: "200ms" }}>
-                You're just one step away from joining our Advanced Cloud & DevOps program. Secure your seat today.
+              <p className="text-lg text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "200ms" }}>
+                You are paying the seat-booking fee to lock your place in the upcoming cohort. The remaining program fee (₹15,000) will be paid later from your learning portal to unlock full course access and live classes.
               </p>
-              
-              <div className="space-y-8 animate-fade-in" style={{ animationDelay: "300ms" }}>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 shadow-sm">
-                    <Rocket className="w-6 h-6 text-primary" />
-                  </div>
+
+              {/* Two-step process callout */}
+              <div className="rounded-xl border border-primary/20 bg-primary/5 p-5 mb-10 animate-fade-in" style={{ animationDelay: "250ms" }}>
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shrink-0">1</div>
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-1">Instant Access</h3>
-                    <p className="text-muted-foreground leading-relaxed">Get immediate access to course materials, learning paths, and our exclusive community upon successful payment.</p>
+                    <p className="font-semibold text-foreground text-sm">Paying now — ₹500 Seat Booking</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">Confirms your seat in the batch and gives you access to your learning portal account.</p>
                   </div>
                 </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-muted text-foreground flex items-center justify-center text-sm font-bold shrink-0 border border-border">2</div>
+                  <div>
+                    <p className="font-semibold text-foreground text-sm">Next — ₹15,000 Full Program Fee</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">Pay later from your learning portal before classes begin to unlock course material and live sessions.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-8 animate-fade-in" style={{ animationDelay: "300ms" }}>
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 shadow-sm">
                     <CheckCircle className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-1">100% Satisfaction</h3>
-                    <p className="text-muted-foreground leading-relaxed">Learn from top industry practitioners. We focus on real-world implementations that actually matter.</p>
+                    <h3 className="text-lg font-semibold text-foreground mb-1">Seat Guaranteed</h3>
+                    <p className="text-muted-foreground leading-relaxed">Your spot in the cohort is reserved the moment your payment is confirmed.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 shadow-sm">
+                    <Rocket className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground mb-1">Portal Access</h3>
+                    <p className="text-muted-foreground leading-relaxed">After payment, you'll get login credentials for the Vyomira learning portal to track your onboarding and pay the balance.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -104,7 +122,7 @@ const Checkout = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-foreground mb-1">Secure Payment</h3>
-                    <p className="text-muted-foreground leading-relaxed">Your payment is processed securely via Cashfree with enterprise-grade encryption.</p>
+                    <p className="text-muted-foreground leading-relaxed">All payments are processed securely through Cashfree with enterprise-grade encryption.</p>
                   </div>
                 </div>
               </div>
