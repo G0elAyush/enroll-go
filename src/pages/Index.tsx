@@ -15,7 +15,7 @@ import {
   DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import logo from "../assets/VyomiraDarkLogo.png";
-import rohitpic from "../../public/RohitKumarPic.jpeg";
+import rohitpic from "/RohitKumarPic.jpeg";
 
 type NavItem = { label: string; href: string };
 type NavGroup = { label: string; href?: string; children?: NavItem[] };
