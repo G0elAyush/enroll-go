@@ -21,7 +21,15 @@ type NavItem = { label: string; href: string };
 type NavGroup = { label: string; href?: string; children?: NavItem[] };
 
 const navGroups: NavGroup[] = [
-  { label: "Program", href: "#program" },
+  { label: "Program", href: "#program",
+    children: [
+      { label: "Program", href: "#program" },
+      { label: "Pricing", href: "#pricing" },
+      { label: "Enrollment Process", href: "#enrollment" },
+      
+    ],
+
+  },
   {
     label: "Curriculum",
     children: [
@@ -31,6 +39,7 @@ const navGroups: NavGroup[] = [
       { label: "What You'll Learn", href: "#learning" },
       { label: "Challenges Solved", href: "#challenges" },
       { label: "Features", href: "#features" },
+      { label: "Enrollment Process", href: "#enrollment" },
     ],
   },
   {
@@ -40,13 +49,12 @@ const navGroups: NavGroup[] = [
       { label: "Placement Support", href: "#placement" },
     ],
   },
-  { label: "Pricing", href: "#pricing" },
+  
   {
     label: "Company",
     children: [
       { label: "About Us", href: "#about" },
-      { label: "Founder", href: "#founder" },
-      { label: "Enrollment Process", href: "#enrollment" },
+      { label: "Founder", href: "#founder" },      
       { label: "FAQ", href: "#faq" },
     ],
   },
@@ -375,7 +383,7 @@ const Index = ({ setPopup }) => {
             </div>
 
             {/* Visual: terminal mock */}
-            <div className="hidden lg:block">
+            <div >
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 blur-2xl rounded-3xl" />
                 <div className="relative rounded-2xl bg-[hsl(222,47%,8%)] border border-[hsl(217,33%,17%)] shadow-2xl overflow-hidden">
@@ -704,7 +712,7 @@ Apply complete! Resources: 12 added.
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               { step: "01", title: "Registration", desc: "A registration fee of ₹500 is required to secure your place in the program. This confirms your interest and reserves your seat.", icon: Users },
-              { step: "02", title: "Verify & Finalize", desc: "Complete your full enrollment by 30th April. Use our secure portal to finalize your payment—with No-Cost EMI options available—to unlock your official Student ID and automated tax invoice.", icon: CheckCircle },
+              { step: "02", title: "Verify & Finalize", desc: "Complete your full enrollment by 10th June. Use our secure portal to finalize your payment—with No-Cost EMI options available—to unlock your official Student ID and automated tax invoice.", icon: CheckCircle },
               { step: "03", title: "Access Dashboard", desc: "Get immediate access to the Vyomira Educate Dashboard. Your credentials will be generated automatically, giving you instant access to the Sunday Live Room and prebatch resources.", icon: Monitor },
             ].map((s, i) => (
               <div key={s.step} className={`aos-init aos-delay-${(i + 1) * 100} card-hover bg-card border border-border rounded-2xl p-8 text-center`}>
@@ -773,7 +781,7 @@ Apply complete! Resources: 12 added.
           </p>
           <div className="grid sm:grid-cols-3 gap-6">
             {[
-              { label: "Upcoming Batch", value: "31st May 2026" },
+              { label: "Upcoming Batch", value: "10th June 2026" },
               { label: "Duration", value: "15 Weeks" },
               { label: "Schedule", value: "Sunday 10:00 AM - 1:00 PM IST" },
             ].map((item, i) => (
