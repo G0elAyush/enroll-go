@@ -219,8 +219,8 @@ const Enroll = () => {
                 {step === "form" ? (
                   <Card className="border-border/50 shadow-xl shadow-primary/5 backdrop-blur-sm bg-card/95">
                     <CardHeader>
-                      <CardTitle className="font-heading text-2xl">Enroll Now</CardTitle>
-                      <CardDescription>Fill in your details to secure your spot</CardDescription>
+                      <CardTitle className="font-heading text-2xl">Book Your Seat</CardTitle>
+                      <CardDescription>Fill in your details to reserve your spot in the upcoming batch.</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-5">
                       <div className="space-y-2">
