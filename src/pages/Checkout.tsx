@@ -70,32 +70,50 @@ const Checkout = () => {
             
             <div className="relative z-10 max-w-lg mx-auto">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary mb-6 animate-fade-in">
-                <ShieldCheck className="w-4 h-4" /> Secure Enrollment Process
+                <ShieldCheck className="w-4 h-4" /> Step 1 of 2 — Seat Booking
               </div>
               <h1 className="text-4xl lg:text-5xl font-bold font-heading mb-6 text-foreground leading-tight animate-fade-in" style={{ animationDelay: "100ms" }}>
-                Complete Your <span className="gradient-text">Registration</span>
+                Confirm Your <span className="gradient-text">Seat Booking</span>
               </h1>
-              <p className="text-lg text-muted-foreground mb-12 animate-fade-in" style={{ animationDelay: "200ms" }}>
-                You're just one step away from joining our Advanced Cloud & DevOps program. Secure your seat today.
+              <p className="text-lg text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "200ms" }}>
+                You are paying the seat-booking fee to lock your place in the upcoming cohort. The remaining program fee (₹15,000) will be paid later from your learning portal to unlock full course access and live classes.
               </p>
-              
-              <div className="space-y-8 animate-fade-in" style={{ animationDelay: "300ms" }}>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 shadow-sm">
-                    <Rocket className="w-6 h-6 text-primary" />
-                  </div>
+
+              {/* Two-step process callout */}
+              <div className="rounded-xl border border-primary/20 bg-primary/5 p-5 mb-10 animate-fade-in" style={{ animationDelay: "250ms" }}>
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shrink-0">1</div>
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-1">Instant Access</h3>
-                    <p className="text-muted-foreground leading-relaxed">Get immediate access to course materials, learning paths, and our exclusive community upon successful payment.</p>
+                    <p className="font-semibold text-foreground text-sm">Paying now — ₹500 Seat Booking</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">Confirms your seat in the batch and gives you access to your learning portal account.</p>
                   </div>
                 </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-muted text-foreground flex items-center justify-center text-sm font-bold shrink-0 border border-border">2</div>
+                  <div>
+                    <p className="font-semibold text-foreground text-sm">Next — ₹15,000 Full Program Fee</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">Pay later from your learning portal before classes begin to unlock course material and live sessions.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-8 animate-fade-in" style={{ animationDelay: "300ms" }}>
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 shadow-sm">
                     <CheckCircle className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-1">100% Satisfaction</h3>
-                    <p className="text-muted-foreground leading-relaxed">Learn from top industry practitioners. We focus on real-world implementations that actually matter.</p>
+                    <h3 className="text-lg font-semibold text-foreground mb-1">Seat Guaranteed</h3>
+                    <p className="text-muted-foreground leading-relaxed">Your spot in the cohort is reserved the moment your payment is confirmed.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 shadow-sm">
+                    <Rocket className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground mb-1">Portal Access</h3>
+                    <p className="text-muted-foreground leading-relaxed">After payment, you'll get login credentials for the Vyomira learning portal to track your onboarding and pay the balance.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -104,7 +122,7 @@ const Checkout = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-foreground mb-1">Secure Payment</h3>
-                    <p className="text-muted-foreground leading-relaxed">Your payment is processed securely via Cashfree with enterprise-grade encryption.</p>
+                    <p className="text-muted-foreground leading-relaxed">All payments are processed securely through Cashfree with enterprise-grade encryption.</p>
                   </div>
                 </div>
               </div>
@@ -124,13 +142,13 @@ const Checkout = () => {
               {/* Mobile Only Motivation Header */}
               <div className="lg:hidden mb-10 text-center animate-fade-in">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary mb-4">
-                  <ShieldCheck className="w-3.5 h-3.5" /> Secure Checkout
+                  <ShieldCheck className="w-3.5 h-3.5" /> Step 1 of 2 — Seat Booking
                 </div>
                 <h1 className="text-3xl font-bold font-heading mb-3 text-foreground leading-tight">
-                  Complete <br/><span className="gradient-text">Registration</span>
+                  Confirm Your <br/><span className="gradient-text">Seat Booking</span>
                 </h1>
                 <p className="text-sm text-muted-foreground px-4">
-                  You're just one step away from joining.
+                  Pay the seat-booking fee to lock your spot. Balance of ₹15,000 is paid later on the learning portal.
                 </p>
               </div>
 
@@ -142,9 +160,9 @@ const Checkout = () => {
                 <Card className="border-border/50 shadow-xl shadow-primary/5 backdrop-blur-sm bg-card/95">
                   <CardHeader>
                     <CardTitle className="font-heading text-2xl flex items-center gap-2">
-                      <CreditCard className="w-6 h-6 text-primary" /> Checkout
+                      <CreditCard className="w-6 h-6 text-primary" /> Seat Booking
                     </CardTitle>
-                    <CardDescription>Complete your enrollment payment</CardDescription>
+                    <CardDescription>Pay the seat-booking fee to secure your place in the batch.</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     {/* Enrollment Summary */}
@@ -175,7 +193,7 @@ const Checkout = () => {
                     {/* Price Summary */}
                     <div className="space-y-3">
                       <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Course Enrollment Fee</span>
+                        <span className="text-muted-foreground">Seat Booking Fee</span>
                         <span className="text-foreground">₹{otpResponse.data.course_amount}</span>
                       </div>
                       {otpResponse.data.gst_amount === 0?(""):(
@@ -186,13 +204,22 @@ const Checkout = () => {
                       )}
                       <Separator className="bg-border/50 my-2" />
                       <div className="flex justify-between font-semibold text-lg items-center">
-                        <span className="text-foreground">Total</span>
+                        <span className="text-foreground">Payable Today</span>
                         <span className="text-primary">₹{otpResponse.data.total_amount}</span>
                       </div>
+                      <div className="flex justify-between text-xs text-muted-foreground pt-1">
+                        <span>Remaining Program Fee (paid later on portal)</span>
+                        <span className="font-medium">₹15,000</span>
+                      </div>
                     </div>
-                      
-                    <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity mt-4" size="lg" onClick={handlePayment}>
-                      Pay with Cashfree
+
+                    {/* Important note */}
+                    <div className="rounded-lg border border-primary/20 bg-primary/5 p-3 text-xs text-foreground/90 leading-relaxed">
+                      <span className="font-semibold text-primary">Note:</span> This payment only secures your seat in the batch. Course material and live classes will be unlocked after you pay the remaining ₹15,000 from your learning portal.
+                    </div>
+
+                    <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity mt-2" size="lg" onClick={handlePayment}>
+                      Pay Seat Booking Fee
                     </Button>
 
                     <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground font-medium bg-muted/50 p-2 rounded-md">

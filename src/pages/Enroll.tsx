@@ -129,23 +129,41 @@ const Enroll = () => {
             
             <div className="relative z-10 max-w-lg mx-auto">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary mb-6 animate-fade-in">
-                <Target className="w-4 h-4" /> Your Career Transformation Starts Here
+                <Target className="w-4 h-4" /> Step 1 of 2 — Secure Your Seat
               </div>
               <h1 className="text-4xl lg:text-5xl font-bold font-heading mb-6 text-foreground leading-tight animate-fade-in" style={{ animationDelay: "100ms" }}>
-                Take the Final Step Towards <span className="gradient-text">Your Engineering Goal</span>
+                Reserve Your Spot in the <span className="gradient-text">Next Cohort</span>
               </h1>
-              <p className="text-lg text-muted-foreground mb-12 animate-fade-in" style={{ animationDelay: "200ms" }}>
-                Join the elite cohort of DevOps and Cloud practitioners. You are moments away from unlocking a curriculum built by industry experts.
+              <p className="text-lg text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "200ms" }}>
+                Enrollment happens in two simple steps. Pay a small seat-booking fee today to lock your place — the remaining program fee is paid later through your learning portal before classes begin.
               </p>
-              
+
+              {/* Two-step process callout */}
+              <div className="rounded-xl border border-primary/20 bg-primary/5 p-5 mb-10 animate-fade-in" style={{ animationDelay: "250ms" }}>
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shrink-0">1</div>
+                  <div>
+                    <p className="font-semibold text-foreground text-sm">Pay ₹500 now — Secure your seat</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">Seat-booking fee to confirm your place in the upcoming batch.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-muted text-foreground flex items-center justify-center text-sm font-bold shrink-0 border border-border">2</div>
+                  <div>
+                    <p className="font-semibold text-foreground text-sm">Pay the balance later on the learning portal</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">Complete the remaining program fee (₹15,000) from your portal to unlock full course material and live classes.</p>
+                  </div>
+                </div>
+              </div>
+
               <div className="space-y-8 animate-fade-in" style={{ animationDelay: "300ms" }}>
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 shadow-sm">
                     <Rocket className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-1">Accelerate Your Career</h3>
-                    <p className="text-muted-foreground leading-relaxed">Gain skills that top tech companies are actively hiring for right now. Go from beginner to production-ready.</p>
+                    <h3 className="text-lg font-semibold text-foreground mb-1">Limited Seats Per Batch</h3>
+                    <p className="text-muted-foreground leading-relaxed">We cap every cohort to keep the mentorship hands-on. Booking early guarantees your seat.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -153,8 +171,8 @@ const Enroll = () => {
                     <CheckCircle className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-1">Hands-on Experience</h3>
-                    <p className="text-muted-foreground leading-relaxed">Work on real production workflows, setting up AWS, CI/CD, Kubernetes, and secure pipelines.</p>
+                    <h3 className="text-lg font-semibold text-foreground mb-1">Practitioner-Led Curriculum</h3>
+                    <p className="text-muted-foreground leading-relaxed">Real production workflows — AWS, CI/CD, Kubernetes, and secure pipelines taught by working engineers.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -163,7 +181,7 @@ const Enroll = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-foreground mb-1">Placement Assistance</h3>
-                    <p className="text-muted-foreground leading-relaxed">Get interview-ready for the ₹3–7 LPA target salary range with dedicated mentorship and mock rounds.</p>
+                    <p className="text-muted-foreground leading-relaxed">Interview prep and mentorship aimed at the ₹3–7 LPA DevOps/Cloud roles companies are hiring for.</p>
                   </div>
                 </div>
               </div>
@@ -181,15 +199,15 @@ const Enroll = () => {
 
             <div className="w-full max-w-md relative z-10">
               {/* Mobile Only Motivation Header */}
-              <div className="lg:hidden mb-10 text-center animate-fade-in">
+              <div className="lg:hidden mb-8 text-center animate-fade-in">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary mb-4">
-                  <Target className="w-3.5 h-3.5" /> Start Your Journey
+                  <Target className="w-3.5 h-3.5" /> Step 1 of 2 — Secure Your Seat
                 </div>
                 <h1 className="text-3xl font-bold font-heading mb-3 text-foreground leading-tight">
-                  Step Towards <br/><span className="gradient-text">Your Goal</span>
+                  Reserve Your Spot <br/><span className="gradient-text">in the Next Cohort</span>
                 </h1>
-                <p className="text-sm text-muted-foreground px-4">
-                  Join our upcoming cohort of DevOps and Cloud practitioners.
+                <p className="text-sm text-muted-foreground px-4 mb-4">
+                  Pay a small seat-booking fee today. The remaining program fee (₹15,000) is paid later on the learning portal to unlock full course access.
                 </p>
               </div>
 
@@ -201,8 +219,8 @@ const Enroll = () => {
                 {step === "form" ? (
                   <Card className="border-border/50 shadow-xl shadow-primary/5 backdrop-blur-sm bg-card/95">
                     <CardHeader>
-                      <CardTitle className="font-heading text-2xl">Enroll Now</CardTitle>
-                      <CardDescription>Fill in your details to secure your spot</CardDescription>
+                      <CardTitle className="font-heading text-2xl">Book Your Seat</CardTitle>
+                      <CardDescription>Fill in your details to reserve your spot in the upcoming batch.</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-5">
                       <div className="space-y-2">
@@ -227,7 +245,7 @@ const Enroll = () => {
                       </div>
                       <Button className="w-full mt-4 bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity" size="lg" disabled={!isFormValid || loading} onClick={handleContinue}>
                         {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
-                        Continue to Next Step
+                        Continue to Seat Booking
                       </Button>
                     </CardContent>
                   </Card>
@@ -258,7 +276,7 @@ const Enroll = () => {
                       </div>
                       <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity" size="lg" disabled={otp.length < 6 || loading} onClick={handleVerify}>
                         {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
-                        Verify & Complete Enrollment
+                        Verify & Proceed to Seat Booking
                       </Button>
                       <p className="text-center text-sm text-muted-foreground">
                         Didn't receive the code?{" "}
