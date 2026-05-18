@@ -245,7 +245,7 @@ const Enroll = () => {
                       </div>
                       <Button className="w-full mt-4 bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity" size="lg" disabled={!isFormValid || loading} onClick={handleContinue}>
                         {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
-                        Continue to Next Step
+                        Continue to Seat Booking
                       </Button>
                     </CardContent>
                   </Card>
