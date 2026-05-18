@@ -199,15 +199,15 @@ const Enroll = () => {
 
             <div className="w-full max-w-md relative z-10">
               {/* Mobile Only Motivation Header */}
-              <div className="lg:hidden mb-10 text-center animate-fade-in">
+              <div className="lg:hidden mb-8 text-center animate-fade-in">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary mb-4">
-                  <Target className="w-3.5 h-3.5" /> Start Your Journey
+                  <Target className="w-3.5 h-3.5" /> Step 1 of 2 — Secure Your Seat
                 </div>
                 <h1 className="text-3xl font-bold font-heading mb-3 text-foreground leading-tight">
-                  Step Towards <br/><span className="gradient-text">Your Goal</span>
+                  Reserve Your Spot <br/><span className="gradient-text">in the Next Cohort</span>
                 </h1>
-                <p className="text-sm text-muted-foreground px-4">
-                  Join our upcoming cohort of DevOps and Cloud practitioners.
+                <p className="text-sm text-muted-foreground px-4 mb-4">
+                  Pay a small seat-booking fee today. The remaining program fee (₹15,000) is paid later on the learning portal to unlock full course access.
                 </p>
               </div>
 
