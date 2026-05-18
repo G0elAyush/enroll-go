@@ -142,13 +142,13 @@ const Checkout = () => {
               {/* Mobile Only Motivation Header */}
               <div className="lg:hidden mb-10 text-center animate-fade-in">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary mb-4">
-                  <ShieldCheck className="w-3.5 h-3.5" /> Secure Checkout
+                  <ShieldCheck className="w-3.5 h-3.5" /> Step 1 of 2 — Seat Booking
                 </div>
                 <h1 className="text-3xl font-bold font-heading mb-3 text-foreground leading-tight">
-                  Complete <br/><span className="gradient-text">Registration</span>
+                  Confirm Your <br/><span className="gradient-text">Seat Booking</span>
                 </h1>
                 <p className="text-sm text-muted-foreground px-4">
-                  You're just one step away from joining.
+                  Pay the seat-booking fee to lock your spot. Balance of ₹15,000 is paid later on the learning portal.
                 </p>
               </div>
 
@@ -160,9 +160,9 @@ const Checkout = () => {
                 <Card className="border-border/50 shadow-xl shadow-primary/5 backdrop-blur-sm bg-card/95">
                   <CardHeader>
                     <CardTitle className="font-heading text-2xl flex items-center gap-2">
-                      <CreditCard className="w-6 h-6 text-primary" /> Checkout
+                      <CreditCard className="w-6 h-6 text-primary" /> Seat Booking
                     </CardTitle>
-                    <CardDescription>Complete your enrollment payment</CardDescription>
+                    <CardDescription>Pay the seat-booking fee to secure your place in the batch.</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-6">
                     {/* Enrollment Summary */}
@@ -193,7 +193,7 @@ const Checkout = () => {
                     {/* Price Summary */}
                     <div className="space-y-3">
                       <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Course Enrollment Fee</span>
+                        <span className="text-muted-foreground">Seat Booking Fee</span>
                         <span className="text-foreground">₹{otpResponse.data.course_amount}</span>
                       </div>
                       {otpResponse.data.gst_amount === 0?(""):(
@@ -204,13 +204,22 @@ const Checkout = () => {
                       )}
                       <Separator className="bg-border/50 my-2" />
                       <div className="flex justify-between font-semibold text-lg items-center">
-                        <span className="text-foreground">Total</span>
+                        <span className="text-foreground">Payable Today</span>
                         <span className="text-primary">₹{otpResponse.data.total_amount}</span>
                       </div>
+                      <div className="flex justify-between text-xs text-muted-foreground pt-1">
+                        <span>Remaining Program Fee (paid later on portal)</span>
+                        <span className="font-medium">₹15,000</span>
+                      </div>
                     </div>
-                      
-                    <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity mt-4" size="lg" onClick={handlePayment}>
-                      Pay with Cashfree
+
+                    {/* Important note */}
+                    <div className="rounded-lg border border-primary/20 bg-primary/5 p-3 text-xs text-foreground/90 leading-relaxed">
+                      <span className="font-semibold text-primary">Note:</span> This payment only secures your seat in the batch. Course material and live classes will be unlocked after you pay the remaining ₹15,000 from your learning portal.
+                    </div>
+
+                    <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity mt-2" size="lg" onClick={handlePayment}>
+                      Pay Seat Booking Fee
                     </Button>
 
                     <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground font-medium bg-muted/50 p-2 rounded-md">
