@@ -276,7 +276,7 @@ const Enroll = () => {
                       </div>
                       <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity" size="lg" disabled={otp.length < 6 || loading} onClick={handleVerify}>
                         {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
-                        Verify & Complete Enrollment
+                        Verify & Proceed to Seat Booking
                       </Button>
                       <p className="text-center text-sm text-muted-foreground">
                         Didn't receive the code?{" "}
