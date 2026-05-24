@@ -467,17 +467,19 @@ Apply complete! Resources: 12 added.
         </div>
       </section>
 
-      {/* Founder */}
+      {/* Founder & Mentors */}
       <section id="founder" className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <span className="text-sm font-semibold text-primary uppercase tracking-wider">Practitioner-Led Learning</span>
               <h2 className="aos-init text-3xl md:text-4xl font-bold text-foreground font-heading mt-3">
-                Learn from the Founder
+                Learn From the Architects Who Build the Global Cloud
               </h2>
             </div>
-            <div className="aos-init grid md:grid-cols-5 gap-8 items-center bg-card border border-border rounded-3xl p-8 md:p-12">
+
+            {/* Rohit - existing card unchanged */}
+            <div className="aos-init grid md:grid-cols-5 gap-8 items-center bg-card border border-border rounded-3xl p-8 md:p-12 mb-8">
               <div className="md:col-span-2 flex justify-center">
                 <div className="relative">
                   <div className="absolute -inset-2 bg-gradient-to-br from-primary to-accent rounded-full blur opacity-30" />
@@ -506,9 +508,71 @@ Apply complete! Resources: 12 added.
                 </Button>
               </div>
             </div>
+
+            {/* Additional mentor cards */}
+            <div className="grid md:grid-cols-2 gap-8">
+              {[
+                {
+                  name: "Gautam S.",
+                  role: "Core Technical Mentor & Panel Reviewer",
+                  img: gautampic,
+                  pedigree: [
+                    "19+ Years of Core Infrastructure Engineering",
+                    "Ex-Google Senior Systems Engineer",
+                    "Enterprise Distributed Architecture Specialist",
+                  ],
+                  about:
+                    "Gautam brings nearly two decades of Silicon Valley systems optimization to the table. Having spent crucial years engineering at Google, he ensures that the architectural patterns, Zero-Trust network configurations, and scalability guidelines you study perfectly match the highest tiers of global tech infrastructure.",
+                },
+                {
+                  name: "Swarupa K.",
+                  role: "Core Technical Mentor & Pipeline Reviewer",
+                  img: swarupapic,
+                  pedigree: [
+                    "10+ Years of Enterprise DevOps Mastery",
+                    "Ex-Accenture Principal Cloud Consultant",
+                    "Cross-Cloud Infrastructure & Billing Architect (AWS, Azure, GCP)",
+                  ],
+                  about:
+                    "Swarupa is an elite specialist in deep cloud economics, multi-cloud management, and massive-scale data migrations. With a powerful background delivering cross-cloud architectures at corporate giants like Accenture and specialized cloud deployment firms, she ensures your multi-cloud operations and automated delivery pipelines are bulletproof and production-ready.",
+                },
+              ].map((m) => (
+                <div key={m.name} className="aos-init card-hover bg-card border border-border rounded-3xl p-8 flex flex-col">
+                  <div className="flex justify-center mb-6">
+                    <div className="relative">
+                      <div className="absolute -inset-2 bg-gradient-to-br from-primary to-accent rounded-full blur opacity-30" />
+                      <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border-4 border-card flex items-center justify-center overflow-hidden">
+                        <img className="w-full h-full object-cover" src={m.img} alt={`${m.name} portrait`} loading="lazy" width={1024} height={1024} />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-center mb-4">
+                    <h3 className="text-2xl font-bold text-card-foreground mb-1">{m.name}</h3>
+                    <p className="text-primary font-semibold">{m.role}</p>
+                  </div>
+                  <ul className="space-y-2 mb-5">
+                    {m.pedigree.map((p) => (
+                      <li key={p} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-muted-foreground leading-relaxed text-sm mb-6">
+                    <span className="font-semibold text-foreground">About Your Mentor: </span>{m.about}
+                  </p>
+                  <div className="mt-auto flex justify-center">
+                    <Button variant="outline" className="rounded-full" type="button">
+                      <Shield className="w-4 h-4" /> Verified Industry Expert
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* Toolbox + Workflow */}
       <section id="toolbox" className="py-20 bg-gradient-to-b from-muted/30 to-background">
