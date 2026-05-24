@@ -76,7 +76,7 @@ const Checkout = () => {
                 Confirm Your <span className="gradient-text">Seat Booking</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "200ms" }}>
-                You are paying the seat-booking fee to lock your place in the upcoming cohort. The remaining program fee (₹15,000) will be paid later from your learning portal to unlock full course access and live classes.
+                You are paying the seat-booking fee to lock your place in the upcoming cohort. The remaining program fee (₹5,000) will be paid later from your learning portal to unlock full course access and live classes.
               </p>
 
               {/* Two-step process callout */}
@@ -91,7 +91,7 @@ const Checkout = () => {
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 rounded-lg bg-muted text-foreground flex items-center justify-center text-sm font-bold shrink-0 border border-border">2</div>
                   <div>
-                    <p className="font-semibold text-foreground text-sm">Next — ₹15,000 Full Program Fee</p>
+                    <p className="font-semibold text-foreground text-sm">Next — ₹5,000 Full Program Fee</p>
                     <p className="text-xs text-muted-foreground mt-0.5">Pay later from your learning portal before classes begin to unlock course material and live sessions.</p>
                   </div>
                 </div>
@@ -148,7 +148,7 @@ const Checkout = () => {
                   Confirm Your <br/><span className="gradient-text">Seat Booking</span>
                 </h1>
                 <p className="text-sm text-muted-foreground px-4">
-                  Pay the seat-booking fee to lock your spot. Balance of ₹15,000 is paid later on the learning portal.
+                  Pay the seat-booking fee to lock your spot. Balance of ₹5,000 is paid later on the learning portal.
                 </p>
               </div>
 
@@ -209,13 +209,13 @@ const Checkout = () => {
                       </div>
                       <div className="flex justify-between text-xs text-muted-foreground pt-1">
                         <span>Remaining Program Fee (paid later on portal)</span>
-                        <span className="font-medium">₹15,000</span>
+                        <span className="font-medium">₹5,000</span>
                       </div>
                     </div>
 
                     {/* Important note */}
                     <div className="rounded-lg border border-primary/20 bg-primary/5 p-3 text-xs text-foreground/90 leading-relaxed">
-                      <span className="font-semibold text-primary">Note:</span> This payment only secures your seat in the batch. Course material and live classes will be unlocked after you pay the remaining ₹15,000 from your learning portal.
+                      <span className="font-semibold text-primary">Note:</span> This payment only secures your seat in the batch. Course material and live classes will be unlocked after you pay the remaining ₹5,000 from your learning portal.
                     </div>
 
                     <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity mt-2" size="lg" onClick={handlePayment}>

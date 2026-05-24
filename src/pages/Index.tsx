@@ -939,7 +939,7 @@ Apply complete! Resources: 12 added.
           <p className="aos-init text-muted-foreground mb-12 text-lg">Total program fee — transparent, no hidden costs.</p>
           <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-6">
             <div className="aos-init card-hover bg-card border border-border rounded-2xl p-8">
-              <p className="text-5xl font-bold gradient-text mb-2">₹15,000</p>
+              <p className="text-5xl font-bold gradient-text mb-2">₹5,000</p>
               <p className="text-muted-foreground mb-6">Complete Program Fee</p>
               <ul className="text-sm text-muted-foreground space-y-3 text-left">
                 <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" /> 15 Live Sessions × 3 Hours</li>
