@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import logo from "../assets/VyomiraDarkLogo.png";
 import rohitpic from "/RohitKumarPic.jpeg";
+import gautampic from "../assets/mentor-gautam.jpg";
+import swarupapic from "../assets/mentor-swarupa.jpg";
 
 type NavItem = { label: string; href: string };
 type NavGroup = { label: string; href?: string; children?: NavItem[] };
