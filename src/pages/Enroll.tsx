@@ -151,7 +151,7 @@ const Enroll = () => {
                   <div className="w-8 h-8 rounded-lg bg-muted text-foreground flex items-center justify-center text-sm font-bold shrink-0 border border-border">2</div>
                   <div>
                     <p className="font-semibold text-foreground text-sm">Pay the balance later on the learning portal</p>
-                    <p className="text-xs text-muted-foreground mt-0.5">Complete the remaining program fee (₹15,000) from your portal to unlock full course material and live classes.</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">Complete the remaining program fee (₹5,000) from your portal to unlock full course material and live classes.</p>
                   </div>
                 </div>
               </div>
@@ -207,7 +207,7 @@ const Enroll = () => {
                   Reserve Your Spot <br/><span className="gradient-text">in the Next Cohort</span>
                 </h1>
                 <p className="text-sm text-muted-foreground px-4 mb-4">
-                  Pay a small seat-booking fee today. The remaining program fee (₹15,000) is paid later on the learning portal to unlock full course access.
+                  Pay a small seat-booking fee today. The remaining program fee (₹5,000) is paid later on the learning portal to unlock full course access.
                 </p>
               </div>
 
