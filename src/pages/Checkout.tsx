@@ -76,7 +76,7 @@ const Checkout = () => {
                 Confirm Your <span className="gradient-text">Seat Booking</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: "200ms" }}>
-                You are paying the seat-booking fee to lock your place in the upcoming cohort. The remaining program fee (₹5,000) will be paid later from your learning portal to unlock full course access and live classes.
+                You are paying the seat-booking fee to lock your place in the upcoming cohort. The program fee (₹5,000) will be paid later from your learning portal to unlock full course access and live classes.
               </p>
 
               {/* Two-step process callout */}
@@ -208,7 +208,7 @@ const Checkout = () => {
                         <span className="text-primary">₹{otpResponse.data.total_amount}</span>
                       </div>
                       <div className="flex justify-between text-xs text-muted-foreground pt-1">
-                        <span>Remaining Program Fee (paid later on portal)</span>
+                        <span>Program Fee (paid later on portal)</span>
                         <span className="font-medium">₹5,000</span>
                       </div>
                     </div>

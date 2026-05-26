@@ -100,24 +100,85 @@ const workflowSteps = [
   { icon: Activity, label: "Monitor & Scale" },
 ];
 
-const phases = [
+const phases = 
+[
   {
     phase: "Phase 1",
-    title: "Linux Fundamentals + Cloud Basics",
+    title: "The Foundation",
     color: "from-blue-500/20 to-cyan-500/20",
     sessions: [
       {
-        n: 1, title: "DevOps Architecture & Cloud Foundations",
-        objective: "Understand the modern DevOps lifecycle and cloud-native principles.",
-        topics: ["DevOps culture & SDLC", "Cloud computing models (IaaS/PaaS/SaaS)", "Architecture overview"],
-        labs: ["Map a real-world deployment pipeline", "Explore an AWS account"],
+        "n": 1,
+        "title": "Linux & The Command Line — How a Server Really Works",
+        "objective": "The questions every DevOps interviewer asks in round one.",
+        "topics": [
+          "Why Linux: 96% of cloud VMs, all containers, every DevOps tool",
+          "Filesystem hierarchy: /, /etc, /var/log, /home, /bin",
+          "Essential daily commands: ls, cat, grep, find, ps, top, chmod",
+          "File permissions: rwxr-xr-x, chmod 755 vs 644",
+          "Processes: ps aux, systemctl, kill vs kill -9",
+          "Package management: apt update, apt install, service verification"
+        ],
+        "labs": [
+          "SSH into Ubuntu VM and explore filesystem",
+          "Find top CPU processes using ps/top",
+          "Install and verify Nginx server"
+        ]
       },
       {
-        n: 2, title: "Advanced Linux for DevOps Engineers",
-        objective: "Master the Linux command line at production-engineer level.",
-        topics: ["Process & systemd", "Permissions & users", "Networking, logs, disks"],
-        labs: ["Provision and harden a Linux VM", "Write maintenance shell scripts"],
+        "n": 2,
+        "title": "Git & Version Control — The Way Teams Write Code Together",
+        "objective": "Branching, merging, and collaboration used in real teams.",
+        "topics": [
+          "Git data model: working dir → staging → repo",
+          "init, add, commit, status, log, diff",
+          "branching and merge conflict resolution",
+          "GitHub: push, pull, PR workflow",
+          "undo changes: revert vs reset",
+          ".gitignore best practices"
+        ],
+        "labs": [
+          "Create repo and feature branch",
+          "Create and resolve merge conflict",
+          "Push PR and merge to main"
+        ]
       },
+      {
+        "n": 3,
+        "title": "Bash Scripting — Automating Daily Tasks",
+        "objective": "Automate repetitive system tasks using shell scripting.",
+        "topics": [
+          "variables and arguments",
+          "if/else conditionals",
+          "loops and functions",
+          "error handling set -euo pipefail",
+          "cron scheduling",
+          "file and process checks"
+        ],
+        "labs": [
+          "Build server health check script",
+          "Monitor disk and memory usage",
+          "Schedule script using cron"
+        ]
+      },
+      {
+        "n": 4,
+        "title": "Python for DevOps — Cloud Automation",
+        "objective": "Use Python to interact with APIs and cloud services.",
+        "topics": [
+          "f-strings, dicts, lists, env variables",
+          "JSON/CSV file handling",
+          "requests library HTTP calls",
+          "boto3 AWS SDK basics",
+          "idempotent automation design",
+          "exception handling best practices"
+        ],
+        "labs": [
+          "EC2 inventory script using boto3",
+          "Export AWS data to CSV",
+          "Filter untagged resources"
+        ]
+      }
     ],
   },
   {
@@ -126,41 +187,75 @@ const phases = [
     color: "from-purple-500/20 to-pink-500/20",
     sessions: [
       {
-        n: 3, title: "AWS Deep Dive (Compute + Networking)",
-        objective: "Build production-grade compute and networking on AWS.",
-        topics: ["EC2, EBS, AMI", "VPC, Subnets, Security Groups", "Load Balancers"],
-        labs: ["Launch a multi-AZ VPC", "Configure ALB with target groups"],
+        "n": 5,
+        "title": "Docker & Containerisation",
+        "objective": "Understand containers vs virtual machines and build images.",
+        "topics": [
+          "containers vs VMs",
+          "Dockerfile instructions",
+          "image layers and caching",
+          "ports, volumes, env vars",
+          "CMD vs ENTRYPOINT",
+          "namespaces and cgroups"
+        ],
+        "labs": [
+          "Containerize a web app",
+          "Fix broken Dockerfile",
+          "Optimize image size"
+        ]
       },
       {
-        n: 4, title: "Multi-Cloud Strategy (AWS vs GCP vs Azure)",
-        objective: "Compare and choose between major cloud providers.",
-        topics: ["Service mapping", "Pricing models", "Vendor lock-in trade-offs"],
-        labs: ["Compare a workload across AWS/GCP/Azure"],
+        "n": 6,
+        "title": "Docker Compose — Multi-Container Apps",
+        "objective": "Run full applications with multiple services.",
+        "topics": [
+          "multi-service architecture",
+          "docker-compose.yml structure",
+          "service networking",
+          "volumes and persistence",
+          "health checks",
+          ".env configuration"
+        ],
+        "labs": [
+          "Deploy web + API + DB stack",
+          "Fix service dependency issue"
+        ]
       },
       {
-        n: 5, title: "OS Hardening & Security Engineering",
-        objective: "Apply real production security baselines.",
-        topics: ["SSH hardening", "Firewalls & SELinux/AppArmor", "Audit logs"],
-        labs: ["Harden an Ubuntu server end-to-end"],
+        "n": 7,
+        "title": "AWS Core Services — EC2, S3, IAM, VPC",
+        "objective": "Core AWS services used in DevOps interviews and jobs.",
+        "topics": [
+          "EC2 instances and security groups",
+          "S3 buckets and policies",
+          "IAM roles vs users",
+          "VPC subnets and routing",
+          "shared responsibility model",
+          "AWS CLI usage"
+        ],
+        "labs": [
+          "Deploy app on EC2",
+          "Host static site on S3",
+          "Configure IAM role access"
+        ]
       },
       {
-        n: 6, title: "Web Stack Engineering (LAMP & LEMP Advanced)",
-        objective: "Engineer high-performance web stacks.",
-        topics: ["Nginx & Apache tuning", "PHP-FPM", "Reverse proxies"],
-        labs: ["Deploy a tuned LEMP stack"],
-      },
-      {
-        n: 7, title: "Database Engineering & Hardening",
-        objective: "Run databases like a production engineer.",
-        topics: ["MySQL/PostgreSQL admin", "Backups & replication", "Access control"],
-        labs: ["Set up replication and automated backups"],
-      },
-      {
-        n: 8, title: "Performance Tuning & Optimization",
-        objective: "Diagnose and fix real performance issues.",
-        topics: ["Profiling, caching, kernel tuning", "Capacity planning"],
-        labs: ["Load test and tune a real web app"],
-      },
+        "n": 8,
+        "title": "AWS Networking & Architecture",
+        "objective": "Design scalable and resilient cloud architectures.",
+        "topics": [
+          "VPC CIDR and subnets",
+          "NAT Gateway",
+          "Load Balancers",
+          "Auto Scaling Groups",
+          "RDS databases",
+          "architecture diagrams"
+        ],
+        "labs": [
+          "Build 2-tier AWS architecture",
+          "Test high availability setup"
+        ]
+      }
     ],
   },
   {
@@ -169,35 +264,57 @@ const phases = [
     color: "from-orange-500/20 to-red-500/20",
     sessions: [
       {
-        n: 9, title: "Application Deployment (Node.js + WordPress)",
-        objective: "Deploy real applications to cloud infrastructure.",
-        topics: ["Process managers", "Reverse proxy config", "Domain & DNS"],
-        labs: ["Deploy Node.js + WordPress on a single VPC"],
+        "n": 9,
+        "title": "CI/CD Pipelines",
+        "objective": "Automate build, test, and deployment pipelines.",
+        "topics": [
+          "CI vs CD",
+          "GitHub Actions workflows",
+          "pipeline stages",
+          "secrets management",
+          "docker build and push",
+          "debugging pipelines"
+        ],
+        "labs": [
+          "Build full CI/CD pipeline",
+          "Auto deploy to EC2 via GitHub Actions"
+        ]
       },
       {
-        n: 10, title: "SSL, Security & Automation",
-        objective: "Automate certificates and security operations.",
-        topics: ["Let's Encrypt", "Auto-renewal", "Headers & WAF basics"],
-        labs: ["Automate SSL provisioning with cron"],
+        "n": 10,
+        "title": "Terraform — Infrastructure as Code",
+        "objective": "Provision cloud infrastructure using code.",
+        "topics": [
+          "IaC principles",
+          "providers and state files",
+          "plan vs apply",
+          "variables and outputs",
+          "remote state (S3 + DynamoDB)",
+          "state drift handling"
+        ],
+        "labs": [
+          "Provision AWS infrastructure using Terraform",
+          "Deploy VPC + EC2 via code"
+        ]
       },
       {
-        n: 11, title: "Docker (Advanced Containerization)",
-        objective: "Containerize applications the right way.",
-        topics: ["Dockerfile best practices", "Multi-stage builds", "Compose"],
-        labs: ["Containerize a multi-service app"],
-      },
-      {
-        n: 12, title: "CI/CD Pipeline Engineering",
-        objective: "Build production-grade CI/CD pipelines.",
-        topics: ["GitHub Actions", "GitLab CI", "Artifacts & secrets"],
-        labs: ["Ship a full CI/CD pipeline to cloud"],
-      },
-      {
-        n: 13, title: "AMI Factory & DevOps Automation",
-        objective: "Build immutable infrastructure with golden images.",
-        topics: ["Packer", "Pre-baked AMIs", "Infrastructure automation"],
-        labs: ["Build a custom AMI factory"],
-      },
+        "n": 11,
+        "title": "Kubernetes Fundamentals",
+        "objective": "Manage containers at scale using orchestration.",
+        "topics": [
+          "Kubernetes architecture",
+          "pods, deployments, services",
+          "self-healing and replicas",
+          "kubectl commands",
+          "service types",
+          "rolling updates"
+        ],
+        "labs": [
+          "Deploy multi-replica app",
+          "Perform rolling update",
+          "Test self-healing pods"
+        ]
+      }
     ],
   },
   {
@@ -206,17 +323,76 @@ const phases = [
     color: "from-green-500/20 to-emerald-500/20",
     sessions: [
       {
-        n: 14, title: "Kubernetes (Practical Introduction)",
-        objective: "Deploy and operate workloads on Kubernetes.",
-        topics: ["Pods, Deployments, Services", "ConfigMaps & Secrets", "Ingress"],
-        labs: ["Deploy a real app on a managed K8s cluster"],
+        "n": 12,
+        "title": "Monitoring & Observability",
+        "objective": "Track system health using metrics and dashboards.",
+        "topics": [
+          "Prometheus metrics collection",
+          "Grafana dashboards",
+          "RED method (Rate, Errors, Duration)",
+          "alerting strategies",
+          "log aggregation",
+          "observability basics"
+        ],
+        "labs": [
+          "Deploy Prometheus + Grafana",
+          "Create monitoring dashboard",
+          "Trigger alerts"
+        ]
       },
       {
-        n: 15, title: "Final Project + Production Demo",
-        objective: "Ship and present a complete production-grade project.",
-        topics: ["End-to-end pipeline", "Cloud deployment", "Live demo"],
-        labs: ["Capstone delivery & engineering presentation"],
+        "n": 13,
+        "title": "DevSecOps Basics",
+        "objective": "Integrate security into DevOps pipelines.",
+        "topics": [
+          "DevSecOps principles",
+          "Trivy container scanning",
+          "secret detection tools",
+          "IAM least privilege",
+          "OWASP Top 10",
+          "compliance basics"
+        ],
+        "labs": [
+          "Add security scanning to pipeline",
+          "Fix IAM misconfigurations"
+        ]
       },
+      {
+        "n": 14,
+        "title": "Full Pipeline Integration",
+        "objective": "Connect all DevOps components end-to-end.",
+        "topics": [
+          "end-to-end architecture",
+          "CI/CD + Kubernetes + monitoring",
+          "incident response",
+          "rollback strategies",
+          "runbooks",
+          "on-call practices"
+        ],
+        "labs": [
+          "Integrate full system pipeline",
+          "Simulate production incident",
+          "Write postmortem"
+        ]
+      },
+      {
+        "n": 15,
+        "title": "Capstone & Mock Interview Day",
+        "objective": "Build and defend a production-ready DevOps system.",
+        "topics": [
+          "full system build",
+          "Terraform + Docker + Kubernetes integration",
+          "CI/CD deployment pipeline",
+          "monitoring dashboard live",
+          "technical interview simulation",
+          "portfolio presentation"
+        ],
+        "labs": [
+          "Build full production system in 60 minutes",
+          "Deploy complete DevOps stack",
+          "Mock interview + evaluation"
+        ]
+      }
     ],
   },
 ];
@@ -259,7 +435,7 @@ const Index = ({ setPopup }) => {
   useScrollAnimation();
 
   const downloadSyllabus = () => {
-    window.open("/VyomiraEducateSyllabus.pdf", "_self");
+    window.open("/Vyomira_Syllabus_Fresher_v4.pdf", "_self");
   };
 
   return (
@@ -769,17 +945,17 @@ Apply complete! Resources: 12 added.
             Degrees get you interviews. Hands-on expertise gets you the offer. While traditional education lags behind the cloud revolution, Vyomira Educate puts you in the driver's seat of real CI/CD pipelines and production-grade automation from Day 1.
           </p>
         </div>
-      </section>
+      </section>  
 
       {/* Enrollment Process */}
       <section id="enrollment" className="py-20" style={{ background: "linear-gradient(180deg, hsl(270 60% 97%), hsl(330 50% 97%))" }}>
         <div className="container mx-auto px-4">
           <h2 className="aos-init text-3xl md:text-4xl font-bold gradient-text font-heading text-center mb-14">Enrollment Process</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { step: "01", title: "Registration", desc: "A registration fee of ₹500 is required to secure your place in the program. This confirms your interest and reserves your seat.", icon: Users },
-              { step: "02", title: "Verify & Finalize", desc: "Complete your full enrollment by 10th June. Use our secure portal to finalize your payment—with No-Cost EMI options available—to unlock your official Student ID and automated tax invoice.", icon: CheckCircle },
-              { step: "03", title: "Access Dashboard", desc: "Get immediate access to the Vyomira Educate Dashboard. Your credentials will be generated automatically, giving you instant access to the Sunday Live Room and prebatch resources.", icon: Monitor },
+              { step: "01", title: "Enrollment to the Vyomira Learning Dashboard", desc: "Complete your registration by paying the standalone ₹500 portal access fee. This amount is not part of the main course fee. It grants access to the Vyomira Educate Student Portal, initializes your profile, and helps us identify candidates who are genuinely committed to learning, building skills, and investing in their future growth.", icon: Users },
+              { step: "02", title: "Vyomira Learning Dashboard Credentials Provisioning", desc: "Once your registration fee is verified, our system instantly provisions your secure account. Check your email for your official login credentials and sign in directly to the Vyomira Educate Student Dashboard to access and explore your student portal.", icon: CheckCircle },
+              { step: "03", title: "Course Fee Finalization & Onboarding", desc: (<>Inside your personalized student dashboard, complete the ₹5,000<sup>+GST</sup> <del>₹10,000</del> <sup>50% off</sup> program fee payment by 25<sup>th</sup> June 2026 to fully activate your student status. This unlocks live technical practice rooms, system lab access, project environments, and your live Sunday architecture sessions.</>), icon: Monitor },
             ].map((s, i) => (
               <div key={s.step} className={`aos-init aos-delay-${(i + 1) * 100} card-hover bg-card border border-border rounded-2xl p-8 text-center`}>
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
@@ -847,7 +1023,7 @@ Apply complete! Resources: 12 added.
           </p>
           <div className="grid sm:grid-cols-3 gap-6">
             {[
-              { label: "Upcoming Batch", value: "10th June 2026" },
+              { label: "Upcoming Batch", value: "30th June 2026" },
               { label: "Duration", value: "15 Weeks" },
               { label: "Schedule", value: "Sunday 10:00 AM - 1:00 PM IST" },
             ].map((item, i) => (
@@ -935,15 +1111,16 @@ Apply complete! Resources: 12 added.
       {/* Pricing */}
       <section id="pricing" className="py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="aos-init text-3xl md:text-4xl font-bold text-foreground font-heading mb-4">Simple & Flexible Payment Plan</h2>
-          <p className="aos-init text-muted-foreground mb-12 text-lg">Total program fee — transparent, no hidden costs.</p>
+          <h2 className="aos-init text-3xl md:text-4xl font-bold text-foreground font-heading mb-4">Program Fee & Details</h2>
+          <p className="aos-init text-muted-foreground mb-12 text-lg">Total program fee — transparent, one time payment.</p>
           <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-6">
             <div className="aos-init card-hover bg-card border border-border rounded-2xl p-8">
-              <p className="text-5xl font-bold gradient-text mb-2">₹5,000</p>
+              <p className="text-5xl font-bold gradient-text mb-2">₹5,000<sup className="gradient-text text-sm"> + GST</sup></p>
+              <p><del className="text-2xl">₹10,000</del><span className="text-2xl"> 50% off</span></p> 
               <p className="text-muted-foreground mb-6">Complete Program Fee</p>
               <ul className="text-sm text-muted-foreground space-y-3 text-left">
                 <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" /> 15 Live Sessions × 3 Hours</li>
-                <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" /> No-Cost EMI available</li>
+               {/* <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" /> No-Cost EMI available</li > */}
                 <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Secure payment via Cashfree</li>
                 <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-primary mt-0.5 shrink-0" /> Automated Tax Invoice</li>
               </ul>
